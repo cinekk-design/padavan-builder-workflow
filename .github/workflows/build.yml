@@ -1828,12 +1828,7 @@ jobs:
           echo "🎯 Target Board: $TARGET_BOARD"
           echo "🗣️ Selected Language Code: $LANG_CODE"
           
-          CONFIG_PATH=$(find "$TEMPLATES_DIR" -type f -name "*.config" | grep -i "$TARGET_BOARD.config" | head -n 1)
-          
-          if [ -z "$CONFIG_PATH" ]; then
-             echo "⚠️ Config not found via strict match, trying loose search..."
-             CONFIG_PATH=$(find "$TEMPLATES_DIR" -type f -name "*.config" | grep -i "$TARGET_BOARD" | head -n 1)
-          fi
+          CONFIG_PATH="build.config"
           
           if [ -f "$CONFIG_PATH" ]; then
             echo "📝 Modifying Config: $CONFIG_PATH"
